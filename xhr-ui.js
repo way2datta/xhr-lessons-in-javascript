@@ -10,7 +10,6 @@ function showUserBio(userResponse) {
   }
   text += "</ul>";
   document.getElementById("user-details").innerHTML = text;
-  console.log(user);
 }
 
 function showUserRepos(userReposResponse) {
@@ -29,5 +28,4 @@ function showUserRepos(userReposResponse) {
   }
 
   document.getElementById("repos-details").innerHTML = text;
-  console.log(userRepos);
 }

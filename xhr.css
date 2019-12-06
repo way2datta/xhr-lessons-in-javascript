@@ -1,0 +1,13 @@
+.user-details, .user-repo-details{
+    list-style: none;
+}
+
+.user-details li strong, .user-repo-details li strong{
+    width: 100px;
+    display: inline-block;
+    text-transform: capitalize;
+}
+
+.user-repo-details ul{
+ margin-bottom: 1rem;
+}

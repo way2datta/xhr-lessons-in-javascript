@@ -1,5 +1,5 @@
-function showUserBio(userResponse) {
-  const user = JSON.parse(userResponse);
+function showUserBio(userResponse, wasParsed) {
+  const user = wasParsed ? userResponse : JSON.parse(userResponse);
   const visibleProps = ["name", "company", "blog", "location", "bio"];
   let text = "<ul class='user-details'>";
   for (const prop in user) {
@@ -12,8 +12,8 @@ function showUserBio(userResponse) {
   document.getElementById("user-details").innerHTML = text;
 }
 
-function showUserRepos(userReposResponse) {
-  const userRepos = JSON.parse(userReposResponse);
+function showUserRepos(userReposResponse, wasParsed) {
+  const userRepos = wasParsed ? userReposResponse : JSON.parse(userReposResponse);
   const visibleProps = ["full_name", "html_url", "description"];
   let text = "";
   for (const userRepo of userRepos.slice(0, 3)) {

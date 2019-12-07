@@ -2,12 +2,16 @@ async function fetchUser() {
     var username = document.getElementById("username").value;
     var repo = '';
 
-    const response = await fetch(`https://api.github.com/users/${username}`);
-    const user = await response.json();
+    const userResponsePromise = fetch(`https://api.github.com/users/${username}`);
+    const userRepoPromise = fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
+
+    const userResponse = await userResponsePromise;
+    const user = await userResponse.json(); 
     showUserBio(user, true);
 
-    const userRepoResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
-    const userRepos = await userRepoResponse.json();
+    const userReposResponse = await userRepoPromise;
+    const userRepos = await userReposResponse.json();
+
     showUserRepos(userRepos, true);
 
     repo = userRepos[0].name;

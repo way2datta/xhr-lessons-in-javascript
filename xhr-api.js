@@ -12,8 +12,6 @@ function fetchUser() {
     xhrRequest2.addEventListener("load", function () {
         showUserRepos(this.responseText);
         repo = JSON.parse(this.responseText)[0].name;
-
-
         var xhrRequest3 = new XMLHttpRequest();
         xhrRequest3.addEventListener("load", function () {
             console.log(this.responseText);
@@ -25,6 +23,7 @@ function fetchUser() {
         xhrRequest3.send();
 
     });
+
     xhrRequest2.open(
         "GET",
         `https://api.github.com/users/${username}/repos?sort=updated`
